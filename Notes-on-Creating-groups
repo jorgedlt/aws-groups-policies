@@ -1,0 +1,29 @@
+##### Test 001 - AmazonS3FullAccess
+ 
+grpadd TestGroup001
+ 
+polgrpatt  arn:aws:iam::aws:policy/AmazonS3FullAccess  TestGroup001
+ 
+polgrpls  TestGroup001                    # Check to see if there
+ 
+polgrpdet  arn:aws:iam::aws:policy/AmazonS3FullAccess  TestGroup001
+ 
+grpdel TestGroup001
+ 
+ 
+##### Test 002 - TestGroup002
+ 
+polawsls | grep ReadOnlyAccess           # find an AWS Policy
+ 
+grpadd TestGroup002
+grpls                                    # Check previous
+ 
+polgrpatt  arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess   TestGroup002
+polgrpatt  arn:aws:iam::aws:policy/IAMReadOnlyAccess        TestGroup002
+ 
+polgrpls  TestGroup002                   # Check to see if there
+ 
+polgrpdet  arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess    TestGroup002
+polgrpdet  arn:aws:iam::aws:policy/IAMReadOnlyAccess         TestGroup002
+ 
+grpdel TestGroup002
