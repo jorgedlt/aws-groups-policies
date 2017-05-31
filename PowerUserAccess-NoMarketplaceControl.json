@@ -1,0 +1,21 @@
+{
+  "PolicyVersion": {
+    "CreateDate": "2016-03-31T15:54:06Z",
+    "VersionId": "v1",
+    "Document": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "NotAction": [
+            "iam:*",
+            "aws-marketplace:Subscribe",
+            "aws-marketplace:Unsubscribe"
+          ],
+          "Resource": "*",
+          "Effect": "Allow"
+        }
+      ]
+    },
+    "IsDefaultVersion": true
+  }
+}
