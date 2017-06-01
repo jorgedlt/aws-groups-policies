@@ -1,0 +1,22 @@
+{
+  "PolicyVersion": {
+    "CreateDate": "2015-12-11T14:12:07Z",
+    "VersionId": "v1",
+    "Document": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Action": [
+            "iam:*"
+          ],
+          "Resource": [
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:user/j_BDSF_delatorre"
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:user/christopher.phillips"
+          ],
+          "Effect": "Deny"
+        }
+      ]
+    },
+    "IsDefaultVersion": false
+  }
+}
