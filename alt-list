@@ -1,0 +1,10 @@
+Disable Root API Access Key and Secret Key
+Enable MFA Tokens Everywhere
+Reduce Number of IAM Users with Admin Rights
+Use Roles for EC2
+Least Privilege: Limit what IAM Entities Can Do with Strong Policies
+Rotate all the Keys Regularly
+Use IAM Roles with STS AssumeRole Where Possible
+Use AutoScaling to Dampen DDoS Effects
+Do Not Allow 0.0.0.0/0 Unless You Mean It
+Watch World-Readable and Listable S3 Bucket Policies
