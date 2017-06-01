@@ -75,6 +75,9 @@ BLOG [AWS Tips I Wish I'd Known Before I Started](https://wblinks.com/notes/aws-
 
 ##### Monitor Activity in Your AWS Account
 
+	iamsummary -- Display account summary
+	iamreport  -- Account wide scan of users, groups and affiliation
+
 #### other items important not cover by the AWS BPWP document
 
 + Logging - and verification there of
