@@ -1,0 +1,78 @@
+{
+  "PolicyVersion": {
+    "CreateDate": "2015-10-07T12:04:47Z",
+    "VersionId": "v1",
+    "Document": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Action": [
+            "iam:CreateVirtualMFADevice",
+            "iam:EnableMFADevice",
+            "iam:ResyncMFADevice"
+          ],
+          "Resource": [
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:mfa/${aws:username}",
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:user/${aws:username}"
+          ],
+          "Effect": "Allow",
+          "Sid": "AllowUsersToCreateEnableResyncTheirOwnVirtualMFADevice"
+        },
+        {
+          "Action": [
+            "iam:DeactivateMFADevice",
+            "iam:DeleteVirtualMFADevice"
+          ],
+          "Resource": [
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:mfa/${aws:username}",
+            "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:user/${aws:username}"
+          ],
+          "Effect": "Allow",
+          "Condition": {
+            "Bool": {
+              "aws:MultiFactorAuthPresent": true
+            }
+          },
+          "Sid": "AllowUsersToDeactivateDeleteTheirOwnVirtualMFADevice"
+        },
+        {
+          "Action": [
+            "iam:ListMFADevices",
+            "iam:ListVirtualMFADevices",
+            "iam:ListUsers"
+          ],
+          "Resource": "*",
+          "Effect": "Allow",
+          "Sid": "AllowUsersToListMFADevicesandUsersForConsole"
+        },
+        {
+          "Action": [
+            "iam:*LoginProfile",
+            "iam:*AccessKey*",
+            "iam:*SSHPublicKey*"
+          ],
+          "Resource": "arn:aws:iam::ACCOUNT-ID-WITHOUT-HYPHENS:user/${aws:username}",
+          "Effect": "Allow"
+        },
+        {
+          "Action": [
+            "iam:ListAccount*",
+            "iam:GetAccount*",
+            "iam:ListUsers"
+          ],
+          "Resource": "*",
+          "Effect": "Allow"
+        },
+        {
+          "Action": [
+            "iam:ChangePassword",
+            "iam:GetAccountPasswordPolicy"
+          ],
+          "Resource": "*",
+          "Effect": "Allow"
+        }
+      ]
+    },
+    "IsDefaultVersion": true
+  }
+}
