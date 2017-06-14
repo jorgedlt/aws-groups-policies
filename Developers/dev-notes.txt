@@ -1,0 +1,5 @@
+suggested group policies
+
+IAMSelfManageServiceSpecificCredentials
+IAMReadOnlyAccess
+PowerUserAccess
