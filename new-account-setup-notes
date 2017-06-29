@@ -22,3 +22,118 @@ iampolls
 ** these notes assume the use of AWSeasy - https://github.com/jorgedlt/awseasy
 
 *** This is a work in progress, the information here is mostly good and vetted, but be considered experimental.
+
+
+Here is what I've settle on for now (30JUN2017)
+
+##
+
+jld0517@UKRA:~$ polgrpls Administrators
+{
+  "AttachedPolicies": [
+    {
+      "PolicyName": "AdministratorAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+    }
+  ]
+}
+ executing command:  aws iam list-attached-group-policies --group-name Administrators
+
+##
+
+jld0517@UKRA:~$ polgrpls PowerUsers
+{
+  "AttachedPolicies": [
+    {
+      "PolicyName": "PowerUserAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/PowerUserAccess"
+    }
+  ]
+}
+ executing command:  aws iam list-attached-group-policies --group-name PowerUsers
+
+##
+
+jld0517@UKRA:~$ polgrpls Developers  # list-attached-group-policies
+{
+  "AttachedPolicies": [
+    {
+      "PolicyName": "AmazonRDSFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+    },
+    {
+      "PolicyName": "AmazonEC2FullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+    },
+    {
+      "PolicyName": "AWSLambdaFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AWSLambdaFullAccess"
+    },
+    {
+      "PolicyName": "AmazonS3FullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    },
+    {
+      "PolicyName": "CloudWatchFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+    },
+    {
+      "PolicyName": "ReadOnlyAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+    },
+    {
+      "PolicyName": "AmazonDynamoDBFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+    },
+    {
+      "PolicyName": "AmazonAPIGatewayAdministrator",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"
+    },
+    {
+      "PolicyName": "AWSIoTFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AWSIoTFullAccess"
+    }
+  ]
+}
+
+
+a awseasy script to achive the above would be
+
+#######
+
+export AWSGroup=Administrators
+#
+ polgrpatt arn:aws:iam::aws:policy/AdministratorAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+
+export AWSGroup=PowerUsers
+#
+ polgrpatt arn:aws:iam::aws:policy/PowerUserAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+
+export AWSGroup=PowerUsers
+#
+ polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/AWSLambdaFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/CloudWatchFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AWSIoTFullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+#
