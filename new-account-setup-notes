@@ -58,10 +58,6 @@ jld0517@UKRA:~$ polgrpls Developers  # list-attached-group-policies
 {
   "AttachedPolicies": [
     {
-      "PolicyName": "AmazonRDSFullAccess",
-      "PolicyArn": "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
-    },
-    {
       "PolicyName": "AmazonEC2FullAccess",
       "PolicyArn": "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
     },
@@ -82,10 +78,6 @@ jld0517@UKRA:~$ polgrpls Developers  # list-attached-group-policies
       "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess"
     },
     {
-      "PolicyName": "AmazonDynamoDBFullAccess",
-      "PolicyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
-    },
-    {
       "PolicyName": "AmazonAPIGatewayAdministrator",
       "PolicyArn": "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"
     },
@@ -95,6 +87,18 @@ jld0517@UKRA:~$ polgrpls Developers  # list-attached-group-policies
     }
   ]
 }
+
+#### maybe
+
+    {
+      "PolicyName": "AmazonRDSFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonRDSFullAccess"
+    },
+      {
+      "PolicyName": "AmazonDynamoDBFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
+    },  
+    
 
 
 a awseasy script to achive the above would be
