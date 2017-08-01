@@ -3,3 +3,39 @@ suggested group policies
 IAMSelfManageServiceSpecificCredentials
 IAMReadOnlyAccess
 PowerUserAccess
+
+
+jld0517@UKRA:~$ polgrpls Developers
+{
+  "AttachedPolicies": [
+    {
+      "PolicyName": "AmazonEC2FullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+    },
+    {
+      "PolicyName": "AWSLambdaFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AWSLambdaFullAccess"
+    },
+    {
+      "PolicyName": "AmazonS3FullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+    },
+    {
+      "PolicyName": "CloudWatchFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+    },
+    {
+      "PolicyName": "ReadOnlyAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+    },
+    {
+      "PolicyName": "AmazonAPIGatewayAdministrator",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator"
+    },
+    {
+      "PolicyName": "AWSIoTFullAccess",
+      "PolicyArn": "arn:aws:iam::aws:policy/AWSIoTFullAccess"
+    }
+  ]
+}
+ executing command:  aws iam list-attached-group-policies --group-name Developers
