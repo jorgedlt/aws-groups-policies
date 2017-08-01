@@ -5,7 +5,6 @@ IAMReadOnlyAccess
 PowerUserAccess
 
 
-jld0517@UKRA:~$ polgrpls Developers
 {
   "AttachedPolicies": [
     {
