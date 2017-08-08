@@ -116,6 +116,7 @@ polgrpls ${AWSGroup}                     # list-attached-group-policies
 export AWSGroup=PowerUsers
 #
  polgrpatt arn:aws:iam::aws:policy/PowerUserAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/IAMReadOnlyAccess ${AWSGroup}
 #
 # Verify
 polgrpls ${AWSGroup}                     # list-attached-group-policies
