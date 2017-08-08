@@ -11,7 +11,7 @@ iampolls
  
  grpls | grep GroupName                             # create standard groups
  
- grpadd Admins
+ grpadd Administrators
  grpadd PowerUsers
  grpadd Developers
  grpadd S3FullAccess
