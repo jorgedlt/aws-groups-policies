@@ -1,3 +1,48 @@
+### STandard Groups with Standard Group Policies
+
+#######
+
+export AWSGroup=Administrators
+#
+ polgrpatt arn:aws:iam::aws:policy/AdministratorAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+
+export AWSGroup=PowerUsers
+#
+ polgrpatt arn:aws:iam::aws:policy/PowerUserAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/IAMReadOnlyAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+
+export AWSGroup=Developers
+#
+ polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/AWSLambdaFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/CloudWatchFullAccess ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator ${AWSGroup}
+ polgrpatt arn:aws:iam::aws:policy/AWSIoTFullAccess ${AWSGroup}
+#
+ polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess ${AWSGroup}
+#
+# Verify
+polgrpls ${AWSGroup}                     # list-attached-group-policies
+
+#
+
+----
+
+
 ##### Test 001 - AmazonS3FullAccess
  
 grpadd TestGroup001
