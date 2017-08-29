@@ -1,6 +1,6 @@
-### STandard Groups with Standard Group Policies
+### Standard Groups with Standard Group Policies
 
-#######
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 export AWSGroup=Administrators
 #
@@ -19,29 +19,49 @@ export AWSGroup=PowerUsers
 polgrpls ${AWSGroup}                     # list-attached-group-policies
 
 
+
 export AWSGroup=Developers
+  polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AWSLambdaFullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/CloudWatchFullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/AWSIoTFullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess ${AWSGroup}
 #
- polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
- polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
-#
- polgrpatt arn:aws:iam::aws:policy/AWSLambdaFullAccess ${AWSGroup}
- polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
-#
- polgrpatt arn:aws:iam::aws:policy/CloudWatchFullAccess ${AWSGroup}
- polgrpatt arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess ${AWSGroup}
-#
- polgrpatt arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator ${AWSGroup}
- polgrpatt arn:aws:iam::aws:policy/AWSIoTFullAccess ${AWSGroup}
-#
- polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess ${AWSGroup}
-#
+# not sure about IAMReadOnlyAccess for Developers
 # Verify
 polgrpls ${AWSGroup}                     # list-attached-group-policies
 
 #
+export AWSGroup=S3FullAccess    
+  polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
+  polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess     ${AWSGroup}
+#
+# Verify
+  polgrpls ${AWSGroup}                     # list-attached-group-policies
 
-----
+#
+export AWSGroup=S3ReadOnlyAccess           # Good for Monitoring 
+                                           # CloudWatch version, could be nice
+  polgrpatt arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess ${AWSGroup}
+#
+# Verify
+  polgrpls ${AWSGroup}                     # list-attached-group-policies
+#
 
+
+# Double checking policies
+
+polawsls | grep Arn | grep ReadOnlyAccess | fcat    # find Group Policy - Standard AWS in this case => arn
+
+polstat arn:aws:iam::aws:policy/ReadOnlyAccess  => v2
+
+poldump arn:aws:iam::aws:policy/ReadOnlyAccess v29
+
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 ##### Test 001 - AmazonS3FullAccess
  
