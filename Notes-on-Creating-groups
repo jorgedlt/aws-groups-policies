@@ -1,7 +1,11 @@
 ### Standard Groups with Standard Group Policies
 
----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+# grp Changer
 
+aws iam update-group --group-name Admins --new-group-name Administrators
+
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+# grpadd Administrators
 export AWSGroup=Administrators
 #
  polgrpatt arn:aws:iam::aws:policy/AdministratorAccess ${AWSGroup}
@@ -19,7 +23,7 @@ export AWSGroup=PowerUsers
 polgrpls ${AWSGroup}                     # list-attached-group-policies
 
 
-
+# grpadd Developers
 export AWSGroup=Developers
   polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
   polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
