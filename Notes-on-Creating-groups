@@ -58,10 +58,13 @@ export AWSGroup=S3ReadOnlyAccess           # Good for Monitoring
   polgrpls ${AWSGroup}                     # list-attached-group-policies
 #
 
+# Checking Group Policies - check for named-policies for a given group
 
-# Double checking policies
+  polgrpls Administrators
 
-polawsls | grep Arn | grep ReadOnlyAccess | fcat    # find Group Policy - Standard AWS in this case => arn
+# Double checking policies - check for policiy-details for a given policy
+
+  polawsls | grep Arn | grep ReadOnlyAccess | fcat    # find Group Policy - Standard AWS in this case => arn
 
 polstat arn:aws:iam::aws:policy/ReadOnlyAccess  => v2
 
