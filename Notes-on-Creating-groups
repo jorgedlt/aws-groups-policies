@@ -41,7 +41,7 @@ export AWSGroup=Developers
 # Verify
 polgrpls ${AWSGroup}                     # list-attached-group-policies
 
-#
+# grpadd S3FullAccess
 export AWSGroup=S3FullAccess    
   polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
   polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess     ${AWSGroup}
@@ -49,7 +49,7 @@ export AWSGroup=S3FullAccess
 # Verify
   polgrpls ${AWSGroup}                     # list-attached-group-policies
 
-#
+# grpadd S3ReadOnlyAccess
 export AWSGroup=S3ReadOnlyAccess           # Good for Monitoring 
                                            # CloudWatch version, could be nice
   polgrpatt arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess ${AWSGroup}
@@ -58,10 +58,14 @@ export AWSGroup=S3ReadOnlyAccess           # Good for Monitoring
   polgrpls ${AWSGroup}                     # list-attached-group-policies
 #
 
+----[ 1 ]---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
 # Checking Group Policies - check for named-policies for a given group
 
   polgrpls Administrators
-
+ 
+----[ 2 ]---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+ 
 # Double checking policies - check for policiy-details for a given policy
 
   polawsls | grep Arn | grep ReadOnlyAccess | fcat    # find Group Policy - Standard AWS in this case => arn
@@ -70,7 +74,8 @@ polstat arn:aws:iam::aws:policy/ReadOnlyAccess  => v2
 
 poldump arn:aws:iam::aws:policy/ReadOnlyAccess v29
 
----- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+----[ EXTRA ]---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 ##### Test 001 - AmazonS3FullAccess
  
