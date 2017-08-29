@@ -1,8 +1,10 @@
 ### Standard Groups with Standard Group Policies
 
-# grp Changer
+# usr changer
+  aws iam update-user  --user-name j_PCWF_delatorre --new-user-name j_stmd_delatorre
 
-aws iam update-group --group-name Admins --new-group-name Administrators
+# grp Changer
+  aws iam update-group --group-name Admins --new-group-name Administrators
 
 ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 # grpadd Administrators
