@@ -1,10 +1,19 @@
 ### Standard Groups with Standard Group Policies
 
 # usr changer
-  aws iam update-user  --user-name j_PCWF_delatorre --new-user-name j_stmd_delatorre
+  aws iam update-user  --user-name j_PVEG_delatorre --new-user-name j_stechdev_delatorre
 
 # grp Changer
-  aws iam update-group --group-name Admins --new-group-name Administrators
+  aws iam update-group --group-name Developers --new-group-name PowerUsers
+
+---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+#.   grpusradd - AWS IAM -- ADD user to group
+#.   grpusrdel - AWS IAM -- DEL user to group
+
+grpusradd j_stechpr_delatorre Administrators
+
+grpusradd n_stechpr_profitt PowerUsers
 
 ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 # grpadd Administrators
@@ -15,7 +24,7 @@ export AWSGroup=Administrators
 # Verify
 polgrpls ${AWSGroup}                     # list-attached-group-policies
 
-
+# grpadd PowerUsers
 export AWSGroup=PowerUsers
 #
  polgrpatt arn:aws:iam::aws:policy/PowerUserAccess ${AWSGroup}
@@ -23,7 +32,6 @@ export AWSGroup=PowerUsers
 #
 # Verify
 polgrpls ${AWSGroup}                     # list-attached-group-policies
-
 
 # grpadd Developers
 export AWSGroup=Developers
