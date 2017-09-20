@@ -56,5 +56,14 @@ polgrpls ${AWSGroup}                                                  # list-att
 ** these notes assume the use of AWSeasy - https://github.com/jorgedlt/awseasy
 *** This is a work in progress, the information here is mostly good and vetted, but be considered experimental.
 
-#######
+----
+
+# adding users
+
+https://newaccount.signin.aws.amazon.com/console
+
+usradd newuser
+grpusradd newuser PowerUsers
+usrpwinit newuser 'x4TsaUgJX!!trwqKw' 
+usrpwrst newuser '111555333cDc!@#'
 
