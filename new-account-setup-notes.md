@@ -73,3 +73,13 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 	grpusradd newuser PowerUsers
 	usrpwinit newuser 'x4TsaUgJX!!trwqKw' 
 	usrpwrst newuser '111555333cDc!@#'
+	
+###  usrakadd - AWS IAM -- access key ADD for a given user
+
+  usrakadd g_stechpr_oei
+
+###   usrmfaadd - AWS IAM -- ADD MFA for a given user
+
+  usrmfaadd g_stechpr_oei
+  
+#
