@@ -76,10 +76,10 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 	
 ###  usrakadd - AWS IAM -- access key ADD for a given user
 
-  usrakadd g_stechpr_oei
+  usrakadd newuser
 
 ###   usrmfaadd - AWS IAM -- ADD MFA for a given user
 
-  usrmfaadd g_stechpr_oei
+  usrmfaadd newuser
   
 #
