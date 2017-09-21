@@ -87,3 +87,5 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 see https://gist.github.com/tomislacker/52976e2ae794654d0d02
 
 ...about mfa and key self managment.
+
+and more on inline policies - http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html
