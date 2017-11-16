@@ -12,6 +12,7 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 	grpadd Administrators
 	grpadd PowerUsers
 	grpadd Developers
+        grpadd Developers-iot
 	grpadd S3FullAccess
 	grpadd S3ReadOnlyAccess
 
@@ -26,7 +27,7 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 
 ##### PowerUsers
 	export AWSGroup=PowerUsers
-	-
+	#
 	 polgrpatt arn:aws:iam::aws:policy/PowerUserAccess ${AWSGroup}
 	 polgrpatt arn:aws:iam::aws:policy/IAMReadOnlyAccess ${AWSGroup}
 
@@ -35,32 +36,34 @@ The being that given a pristine new AWS account which steps to conduct to bring 
 
 ##### Developers
 	export AWSGroup=Developers
-	-
+        #
 	polgrpatt arn:aws:iam::aws:policy/AmazonRDSFullAccess ${AWSGroup}
 	polgrpatt arn:aws:iam::aws:policy/AmazonEC2FullAccess ${AWSGroup}
-	
-	-
+        #
 	polgrpatt arn:aws:iam::aws:policy/AWSLambdaFullAccess ${AWSGroup}
 	polgrpatt arn:aws:iam::aws:policy/AmazonS3FullAccess ${AWSGroup}
-	
-	-
+        #
 	polgrpatt arn:aws:iam::aws:policy/CloudWatchFullAccess ${AWSGroup}
 	polgrpatt arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess ${AWSGroup}
-	
-	-
+        #
 	polgrpatt arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator ${AWSGroup}
 	polgrpatt arn:aws:iam::aws:policy/ReadOnlyAccess ${AWSGroup}
-
--
+	
 ##### Verify
 	polgrpls ${AWSGroup}                                                  # list-attached-group-policies`
- 
-----
+
+
+##### Developers-iot
+	export AWSGroup=Developers-iot
+        #
+	polgrpatt arn:aws:iam::aws:policy/AWSIoTFullAccess ${AWSGroup}
+        #
+
 
 ** these notes assume the use of AWSeasy - https://github.com/jorgedlt/awseasy
 *** This is a work in progress, the information here is mostly good and vetted, but be considered experimental.
 
-----
+
 
 ### Creating users
 
